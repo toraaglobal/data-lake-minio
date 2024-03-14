@@ -104,6 +104,26 @@ Secret Key:  3Kt12YoprqtvnH7gMRr7BPtfx8OW8AgS
 
 Integrate MinIO with data processing and analytics applications using the S3 API or native SDKs.
 
+```
+import boto3
+
+# Set your MinIO endpoint and credentials
+minio_endpoint = "http://localhost:9090"
+access_key = 'Is4MNdgVpvEwHeNn'
+secret_key =  'zX2cFDClAIfl8Ecbz96I2J9QGTLUjaEs'
+
+# Initialize the S3 client
+s3_client = boto3.client('s3', endpoint_url=minio_endpoint, aws_access_key_id=access_key, aws_secret_access_key=secret_key)
+
+# Upload an object to a bucket
+bucket_name = 'your-bucket-name'
+object_key = 'your-object-key'
+local_file = 'marketdata/AAPL.parquet'
+
+s3_client.upload_file(local_file, bucket_name, object_key)
+
+```
+
 
 
 ## Monitoring and Management
